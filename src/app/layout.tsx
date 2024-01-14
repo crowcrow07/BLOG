@@ -19,10 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={notoSans.className}>
-        <header>안녕하세요</header>
-        {children}
-      </body>
+      <body className={notoSans.className}>{children}</body>
     </html>
   );
 }
