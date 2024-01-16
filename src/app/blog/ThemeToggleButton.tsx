@@ -1,6 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
 
+import Image from "next/image";
+import { IconDarkMode, IconLightMode } from "../../../public/svgs";
+
 export default function ThemeToggleButton() {
   const [darkTheme, setDarkTheme] = useState<boolean | undefined>(undefined);
 
@@ -32,8 +35,20 @@ export default function ThemeToggleButton() {
   return (
     <>
       {darkTheme !== undefined && (
-        <button onClick={handleToggle}>
-          {darkTheme ? "light-mode" : "dark-mode"}
+        <button className="w-16 h-16 mb-2" onClick={handleToggle}>
+          {darkTheme ? (
+            <Image
+              src={IconLightMode}
+              alt="LightMode"
+              className="w-full h-full"
+            />
+          ) : (
+            <Image
+              src={IconDarkMode}
+              alt="DarkMode"
+              className="w-full h-full"
+            />
+          )}
         </button>
       )}
     </>

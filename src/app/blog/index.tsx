@@ -32,7 +32,7 @@ export default function Blog() {
             </Link>
           </div>
           <div className="flex flex-col gap-y-2 mb-10">
-            <div className="w-full">
+            <div className="w-full flex justify-center">
               <ThemeToggleButton />
             </div>
             <div>skathd3402@gmail.com</div>
