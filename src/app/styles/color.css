@@ -1,4 +1,5 @@
 :root {
+  /* color */
   --color-white: #ffffff;
   --color-black: #000000;
   --color-black-rgb: 0, 0, 0;
@@ -31,12 +32,15 @@
   --color-em: #ff59e3;
 }
 
+/* light dark color theme */
 [data-theme="dark"] {
-  --color-bg-nav: var(--color-gray-1);
-  --color-nav: var(--color-gray-f);
+  --color-bg: var(--color-gray-1);
+  --color-text: var(--color-gray-f);
+  --color-intro-text: var(--color-gray-f);
 }
 
 [data-theme="light"] {
-  --color-bg-nav: var(--color-gray-f);
-  --color-nav: var(--color-gray-1);
+  --color-bg: var(--color-gray-f);
+  --color-text: var(--color-gray-1);
+  --color-intro-text: var(--color-gray-1);
 }
