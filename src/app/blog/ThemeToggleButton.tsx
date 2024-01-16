@@ -8,20 +8,15 @@ export default function ThemeToggleButton() {
   const [darkTheme, setDarkTheme] = useState<boolean | undefined>(undefined);
 
   const handleToggle = () => {
-    setDarkTheme(!darkTheme);
-  };
+    setDarkTheme((prevTheme) => {
+      const newTheme = !prevTheme;
 
-  useEffect(() => {
-    if (darkTheme !== undefined) {
-      if (darkTheme) {
-        document.body.setAttribute("data-theme", "dark");
-        window.localStorage.setItem("theme", "dark");
-      } else {
-        document.body.removeAttribute("data-theme");
-        window.localStorage.setItem("theme", "light");
-      }
-    }
-  }, [darkTheme]);
+      // 테마 변경 시 로컬 스토리지에 저장
+      window.localStorage.setItem("theme", newTheme ? "dark" : "light");
+
+      return newTheme;
+    });
+  };
 
   useEffect(() => {
     const root = window.document.body;
@@ -32,22 +27,21 @@ export default function ThemeToggleButton() {
     setDarkTheme(initialColorValue === "dark");
   }, []);
 
+  useEffect(() => {
+    // darkTheme이 변경될 때마다 data-theme 속성을 설정
+    if (darkTheme !== undefined) {
+      document.body.setAttribute("data-theme", darkTheme ? "dark" : "light");
+    }
+  }, [darkTheme]);
+
   return (
     <>
       {darkTheme !== undefined && (
-        <button className="w-16 h-16 mb-2" onClick={handleToggle}>
+        <button className="w-full h-full" onClick={handleToggle}>
           {darkTheme ? (
-            <Image
-              src={IconLightMode}
-              alt="LightMode"
-              className="w-full h-full"
-            />
+            <IconLightMode width="100%" height="100%" />
           ) : (
-            <Image
-              src={IconDarkMode}
-              alt="DarkMode"
-              className="w-full h-full"
-            />
+            <IconDarkMode width="100%" height="100%" />
           )}
         </button>
       )}
