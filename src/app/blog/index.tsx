@@ -1,14 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import ThemeToggleButton from "./ThemeToggleButton";
+
 import { IconArrow } from "../../../public/svgs";
-// import "./index.module.css";
+import styles from "./index.module.css";
 
 export default function Blog() {
   return (
-    <div className="z-1">
-      <header className="flex h-screen text-white">
-        <nav className="w-[20vw] bg-[#0F0F0F] flex flex-col justify-between items-center z-10">
+    <>
+      <header className={styles.headerContainer}>
+        <nav className={styles.navContainer}>
           <div className="flex flex-col gap-y-12 mt-20 text-3xl font-bold">
             <Link href="https://github.com/crowcrow07" target="_blank">
               GitHub<span className="text-red-500">.</span>
@@ -30,13 +32,16 @@ export default function Blog() {
             </Link>
           </div>
           <div className="flex flex-col gap-y-2 mb-10">
+            <div className="w-full">
+              <ThemeToggleButton />
+            </div>
             <div>skathd3402@gmail.com</div>
             <div>Last update: 2024/01/15</div>
           </div>
         </nav>
         <div className="relative w-[80vw]">
-          <div className="absolute z-10 w-full h-full bg-black opacity-50" />
-          <div className="absolute z-20 text-center text-white w-full h-full flex flex-col justify-center">
+          <div className="absolute w-full h-full bg-black opacity-50" />
+          <div className="absolute text-center text-white w-full h-full flex flex-col justify-center">
             <p className="text-5xl font-bold my-4">좌절을 기록하며 성장하는</p>
             <h1 className="text-5xl font-bold my-4">
               <span className="text-8xl underline underline-offset-[-5px] decoration-red-500 decoration-[25px]">
@@ -63,6 +68,6 @@ export default function Blog() {
         <div>5</div>
       </main>
       <footer></footer>
-    </div>
+    </>
   );
 }

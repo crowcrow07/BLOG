@@ -1,0 +1,14 @@
+.headerContainer {
+  display: flex;
+  height: 100vh;
+}
+
+.navContainer {
+  width: 20vw;
+  background-color: var(--color-bg-nav);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-nav);
+}
