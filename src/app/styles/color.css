@@ -7,8 +7,8 @@
   --color-gray-2: #232323;
   --color-gray-4: #4c4c4c;
   --color-gray-4-rgb: 76, 76, 76;
-  --color-gray-7: #767676; /* Minimum WCAG AA Pass */
-  --color-gray-8: #8c8c8c; /* Fail to WCAG AA */
+  --color-gray-7: #767676;
+  --color-gray-8: #8c8c8c;
   --color-gray-9: #999999;
   --color-gray-a: #aaaaaa;
   --color-gray-c: #cccccc;
@@ -17,13 +17,13 @@
   --color-gray-f: #f6f6f6;
 
   --color-bg: #f6f6f6;
-  --color-blue: #0071f0; /* Minimum WCAG AA Pass */
+  --color-blue: #0071f0;
   --color-blue-dark: #0053b3;
-  --color-red: #eb0d00; /* Minimum WCAG AA Pass */
+  --color-red: #eb0d00;
   --color-red-rgb: 235, 13, 0;
   --color-orange: #ff9500;
   --color-yellow: #ffcc00;
-  --color-green: #26873e; /* Minimum WCAG AA Pass */
+  --color-green: #26873e;
   --color-teal: #5ac8fa;
   --color-indigo: #5856d6;
   --color-purple: #af52de;
@@ -36,11 +36,9 @@
 [data-theme="dark"] {
   --color-bg: var(--color-gray-1);
   --color-text: var(--color-gray-f);
-  --color-intro-text: var(--color-gray-f);
 }
 
 [data-theme="light"] {
   --color-bg: var(--color-gray-f);
   --color-text: var(--color-gray-1);
-  --color-intro-text: var(--color-gray-1);
 }
