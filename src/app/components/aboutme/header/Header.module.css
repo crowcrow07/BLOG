@@ -1,0 +1,169 @@
+.headerContainer {
+  display: flex;
+  height: 100vh;
+  position: relative;
+}
+
+.bgContainer {
+  position: fixed;
+  width: 80vw;
+  height: 100vh;
+  right: 0;
+}
+
+.navContainer {
+  width: 20vw;
+  min-width: 270px;
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-text);
+  z-index: 1;
+}
+
+.linkContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+  margin-top: 5rem;
+  font-size: 30px;
+  line-height: 2.25rem;
+  font-weight: bold;
+}
+
+.toggleButtonContainer {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.introContainer {
+  position: relative;
+  width: 80vw;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-bg);
+  opacity: 0.5;
+}
+
+.introText {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: var(--color-text);
+}
+
+.textMainInfo {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.textMinJae {
+  font-size: 6rem;
+  line-height: 1;
+}
+
+.textSubInfo {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+@media (max-width: 480px) {
+  .textMainInfo {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .textMinJae {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .textSubInfo {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+    text-wrap: balance;
+  }
+}
+
+/* 480px보다 크고 640px보다 작을 경우 */
+@media (min-width: 480px) and (max-width: 640px) {
+  .textMainInfo {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .textMinJae {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
+  .textSubInfo {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+/* 640px보다 크고 768px보다 작을 경우 */
+@media (min-width: 640px) and (max-width: 768px) {
+  .textMainInfo {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .textMinJae {
+    font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .textSubInfo {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+/* 1024px보다 작을 경우 */
+@media (max-width: 1024px) {
+  .headerContainer {
+    flex-direction: column;
+    height: 150vh;
+  }
+
+  .bgContainer {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+  }
+
+  .navContainer {
+    width: 100vw;
+    height: 50vh;
+    min-height: 500px;
+  }
+
+  .linkContainer {
+    row-gap: 2rem;
+    margin-top: 3rem;
+    align-items: center;
+  }
+
+  .toggleButtonContainer {
+    height: 3rem;
+  }
+
+  .introContainer {
+    height: 100vh;
+    width: 100vw;
+  }
+}
