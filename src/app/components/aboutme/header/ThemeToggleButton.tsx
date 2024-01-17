@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 
-import { IconDarkMode, IconLightMode } from "../../../public/svgs";
+import { IconDarkMode, IconLightMode } from "../../../../../public/svgs";
 
 export default function ThemeToggleButton() {
   const [darkTheme, setDarkTheme] = useState<boolean | undefined>(undefined);

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
-import "@styles/globals.css";
-import "@styles/color.css";
+import "@/styles/globals.css";
+import "@/styles/color.css";
 
-import { notoSans } from "@styles/fonts";
-import { setInitialColorMode } from "@components/theme";
+import { notoSans } from "@/styles/fonts";
+import { setInitialColorMode } from "@/components/aboutme/header/theme";
 
 export const metadata: Metadata = {
   title: "김민재의 블로그",
