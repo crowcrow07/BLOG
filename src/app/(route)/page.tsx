@@ -1,17 +1,12 @@
 import Header from "@/components/aboutme/header";
+import Main from "@/components/aboutme/main";
 
 export default function Home() {
   return (
-    <>
+    <div className="overflow-y-scroll">
       <Header />
-      <main className="bg-white relative">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-      </main>
+      <Main />
       <footer></footer>
-    </>
+    </div>
   );
 }
