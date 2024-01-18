@@ -1,9 +1,9 @@
-import Header from "@/components/aboutme/header";
-import Main from "@/components/aboutme/main";
+import Header from "@/app/components/aboutMe/header";
+import Main from "@/app/components/aboutMe/main";
 
 export default function Home() {
   return (
-    <div className="overflow-y-scroll">
+    <div className="">
       <Header />
       <Main />
       <footer></footer>

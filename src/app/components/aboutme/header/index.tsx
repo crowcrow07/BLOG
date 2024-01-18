@@ -6,7 +6,7 @@ import ThemeToggleButton from "./ThemeToggleButton";
 import { IconArrow } from "@/public/svgs";
 import { NavbarLink, NavbarName } from "@/app/constants/constants";
 
-import styles from "@/styles/Header.module.css";
+import styles from "@/styles/Header.module.scss";
 
 export default function Header() {
   return (
