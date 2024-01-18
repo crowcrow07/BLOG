@@ -8,50 +8,42 @@
   background-color: var(--color-bg);
   color: var(--color-text);
 }
-
 .contentsContainer {
   max-width: 1280px;
   width: 100%;
 }
-
 .gridContainer {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 100%));
   grid-auto-rows: minmax(612px, auto);
   gap: 2rem;
   text-align: center;
+  > div {
+    border-color: var(--color-text);
+    background-color: transparent;
+    border-width: 1px;
+    border-radius: 2px;
+    cursor: pointer;
+  }
 }
-
-.gridContainer > div {
-  border-color: var(--color-text);
-  background-color: transparent;
-  border-width: 1px;
-  border-radius: 2px;
-  cursor: pointer;
-}
-
 /* 480px보다 작을 경우 */
 @media (max-width: 480px) {
   .gridContainer {
     grid-template-columns: repeat(1, minmax(0, 100%));
   }
 }
-
 /* 480px보다 크고 640px보다 작을 경우 */
 @media (min-width: 480px) and (max-width: 640px) {
-  /* 리스트 형태로 사진은 안나오게. */
   .gridContainer {
     grid-template-columns: repeat(1, minmax(0, 100%));
   }
 }
-
 /* 640px보다 크고 768px보다 작을 경우 */
 @media (min-width: 640px) and (max-width: 768px) {
   .gridContainer {
     grid-template-columns: repeat(1, minmax(0, 100%));
   }
 }
-
 /* 1024px보다 작을 경우 */
 @media (min-width: 768px) and (max-width: 1024px) {
   .gridContainer {
