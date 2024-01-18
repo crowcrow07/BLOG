@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
-import "@/styles/globals.css";
-import "@/styles/color.css";
+import "@/styles/globals.scss";
+import "@/styles/variable.scss";
 
-import { notoSans } from "@/styles/fonts";
-import { setInitialColorMode } from "@/components/aboutme/header/theme";
+import { notoSans } from "@/app/styles/fonts";
+import { setInitialColorMode } from "@/app/components/aboutMe/header/setInitalColorMode";
 
 export const metadata: Metadata = {
   title: "김민재의 블로그",
@@ -24,7 +24,10 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`relative ${notoSans.className}`}>
+      <body
+        suppressHydrationWarning={true}
+        className={`relative ${notoSans.className}`}
+      >
         <script
           dangerouslySetInnerHTML={{
             __html: themeInitializerScript,

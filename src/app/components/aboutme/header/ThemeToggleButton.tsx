@@ -1,10 +1,11 @@
 "use client";
-import { useState, useEffect } from "react";
+import useThemeEffect from "@/app/hooks/useThemeEffect";
+import { IconDarkMode, IconLightMode } from "@/public/svgs";
 
-import { IconDarkMode, IconLightMode } from "../../../../../public/svgs";
+import { LoadingSpinner2 } from "@/app/ui/loading/Spinner";
 
 export default function ThemeToggleButton() {
-  const [darkTheme, setDarkTheme] = useState<boolean | undefined>(undefined);
+  const { darkTheme, setDarkTheme } = useThemeEffect();
 
   const handleToggle = () => {
     setDarkTheme((prevTheme) => {
@@ -17,25 +18,9 @@ export default function ThemeToggleButton() {
     });
   };
 
-  useEffect(() => {
-    const root = window.document.body;
-    const initialColorValue = root.style.getPropertyValue(
-      "--initial-color-mode"
-    );
-
-    setDarkTheme(initialColorValue === "dark");
-  }, []);
-
-  useEffect(() => {
-    // darkTheme이 변경될 때마다 data-theme 속성을 설정
-    if (darkTheme !== undefined) {
-      document.body.setAttribute("data-theme", darkTheme ? "dark" : "light");
-    }
-  }, [darkTheme]);
-
   return (
     <>
-      {darkTheme !== undefined && (
+      {darkTheme !== undefined ? (
         <button className="w-full h-full" onClick={handleToggle}>
           {darkTheme ? (
             <IconLightMode width="100%" height="100%" />
@@ -43,6 +28,8 @@ export default function ThemeToggleButton() {
             <IconDarkMode width="100%" height="100%" />
           )}
         </button>
+      ) : (
+        <LoadingSpinner2 />
       )}
     </>
   );
