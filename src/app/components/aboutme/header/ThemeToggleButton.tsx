@@ -2,6 +2,8 @@
 import useThemeEffect from "@/app/hooks/useThemeEffect";
 import { IconDarkMode, IconLightMode } from "@/public/svgs";
 
+import { LoadingSpinner2 } from "@/app/ui/loading/Spinner";
+
 export default function ThemeToggleButton() {
   const { darkTheme, setDarkTheme } = useThemeEffect();
 
@@ -27,7 +29,7 @@ export default function ThemeToggleButton() {
           )}
         </button>
       ) : (
-        <div>로딩중</div>
+        <LoadingSpinner2 />
       )}
     </>
   );
