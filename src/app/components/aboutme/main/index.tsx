@@ -1,22 +1,40 @@
+import Card from "./Card";
+
+import ImageUpload from "./test";
+
 import styles from "@/styles/Main.module.scss";
 
-export default function Main() {
+interface Data {
+  id: number;
+  image_url: string;
+  title: string;
+  subtitle: string;
+  contents: string;
+  tag: string;
+  date: string;
+  path: string;
+}
+
+interface ApiResponse {
+  data: Data[];
+}
+
+export default async function Main() {
+  const result = await fetch("http://localhost:3000/api");
+  const data: ApiResponse = await result.json();
+
   return (
     <main className={`${styles.mainContainer}`}>
       <div className={`${styles.contentsContainer}`}>
-        <h2 className="text-5xl mb-6 font-bold">소제목이 들어갈듯</h2>
+        <h2 className="my-6 pb-4 font-bold">개발 컨텐츠</h2>
         <div className={`${styles.gridContainer}`}>
-          <div>이력서</div>
-          <div>Project</div>
-          <div>Share</div>
-          <div>학력 or 교육</div>
-          <div>스터디</div>
-          <div>지금까지 블로그 포스팅한것들</div>
+          {data &&
+            data.data.map((item: Data) => <Card key={item.id} data={item} />)}
         </div>
-        <h2 className="text-5xl mt-6 font-bold">
-          개발이랑 관련 없는 소제목 들어갈듯
-        </h2>
+        <h2 className="mt-12 mb-8 pb-4 font-bold">일상 컨텐츠</h2>
+        <div className={`${styles.gridContainer}`}></div>
       </div>
+      <ImageUpload />
     </main>
   );
 }
