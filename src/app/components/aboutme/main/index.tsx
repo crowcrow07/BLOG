@@ -1,10 +1,18 @@
-import Image from "next/image";
-
 import Card from "./Card";
+
+import ImageUpload from "./test";
 
 import styles from "@/styles/Main.module.scss";
 
 export default function Main() {
+  // fetch("http://localhost:3000/api").then((res) => {
+  //   res.json().then((data) => {
+  //     console.log(data);
+  //   });
+  // });
+  // .then((res) => res.json())
+  // .then((data) => console.log(data));
+
   return (
     <main className={`${styles.mainContainer}`}>
       <div className={`${styles.contentsContainer}`}>
@@ -25,6 +33,7 @@ export default function Main() {
           <div>1</div>
         </div>
       </div>
+      <ImageUpload />
     </main>
   );
 }
