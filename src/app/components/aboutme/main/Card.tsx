@@ -9,7 +9,7 @@ type Props = {
 
 // export default function Card({ children, ...props }: Props) {
 export default function Card() {
-  // 받아야할 데이터 : id, image url, title, subTitle, contents, tag, date
+  // 받아야할 데이터 : id, image url, title, subTitle, contents, tag, date, 이동할 경로
   return (
     <div className="h-full flex flex-col">
       <div className={`${styles.none} ${styles.imageContainer}`}>
