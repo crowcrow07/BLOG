@@ -45,10 +45,12 @@ export default function Header() {
           <div className={styles.toggleButtonContainer}>
             <ThemeToggleButton />
           </div>
-          <div>
+          <div className="cursor-pointer">
             <IconEmail width={"4rem"} height={"4rem"} />
           </div>
-          <div>2</div>
+          <div className="cursor-pointer">
+            <IconLogin width={"4rem"} height={"4rem"} />
+          </div>
         </div>
       </nav>
       <section className={styles.introContainer}>
