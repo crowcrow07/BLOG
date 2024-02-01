@@ -48,9 +48,9 @@ export default function Header() {
           <div className="cursor-pointer">
             <IconEmail width={"4rem"} height={"4rem"} />
           </div>
-          <div className="cursor-pointer">
+          <Link href={"/auth/login"} className="cursor-pointer">
             <IconLogin width={"4rem"} height={"4rem"} />
-          </div>
+          </Link>
         </div>
       </nav>
       <section className={styles.introContainer}>
