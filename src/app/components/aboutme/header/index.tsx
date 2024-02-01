@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import ThemeToggleButton from "./ThemeToggleButton";
 
-import { IconArrow } from "@/public/svgs";
+import { IconArrow, IconEmail, IconLogin } from "@/public/svgs";
 import { NavbarLink, NavbarName } from "@/app/constants/constants";
 
 import styles from "@/styles/Header.module.scss";
@@ -41,12 +41,14 @@ export default function Header() {
             <span className="text-red-500">.</span>
           </Link>
         </div>
-        <div className="flex flex-col gap-y-2 mb-10">
+        <div className={`${styles.buttonListContainer}`}>
           <div className={styles.toggleButtonContainer}>
             <ThemeToggleButton />
           </div>
-          <div>{NavbarName.EMAIL}</div>
-          <div>{NavbarName.UPDATE}</div>
+          <div>
+            <IconEmail width={"4rem"} height={"4rem"} />
+          </div>
+          <div>2</div>
         </div>
       </nav>
       <section className={styles.introContainer}>
