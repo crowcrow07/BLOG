@@ -1,0 +1,163 @@
+.fabCheckbox {
+  display: none;
+}
+.fab {
+  position: absolute;
+  bottom: -1rem;
+  right: -1rem;
+  width: 4rem;
+  height: 4rem;
+  background: blue;
+  border-radius: 50%;
+  background: #ef4444;
+  /*   box-shadow: 0px 5px 20px #81a4f1; */
+  transition: all 0.3s ease;
+  z-index: 1;
+  border-bottom-right-radius: 6px;
+  /*   border: 1px solid #0c50a7; */
+  cursor: pointer;
+}
+
+.fab:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.fabCheckbox:checked ~ .fab:before {
+  width: 90%;
+  height: 90%;
+  left: 5%;
+  top: 5%;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.fab:hover {
+  background: rgb(220 38 38);
+  /*   box-shadow: 0px 5px 20px 5px #81a4f1; */
+}
+
+.fabLine {
+  position: absolute;
+  /*   height: 8px;
+    width: 8px; */
+  background-color: var(--color-text);
+  border-radius: 10px;
+  top: 50%;
+  transform: translateX(0%) translateY(-50%) rotate(0deg);
+  opacity: 1;
+  /*   animation: blink 3s ease infinite; */
+  transition: all 0.3s ease;
+}
+
+.fabLine1 {
+  left: 15px;
+  animation-delay: 0s;
+  width: 32px;
+  height: 8px;
+}
+/* .fabLine2 {
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    animation-delay: 0.4s;
+  } */
+.fabLine3 {
+  /*   right: 15px; */
+  left: 42%;
+  bottom: 15px;
+  animation-delay: 0.8s;
+  width: 8px;
+  height: 32px;
+}
+
+.fabCheckbox:checked ~ .fab .fabLine {
+  height: 6px;
+}
+
+/* .fab .fabLine2 {
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  } */
+
+.fabCheckbox:checked ~ .fab .fabLine1 {
+  width: 32px;
+  border-radius: 10px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+}
+.fabCheckbox:checked ~ .fab .fabLine3 {
+  width: 32px;
+  border-radius: 10px;
+  left: 0px;
+  right: 50%;
+  transform: translateX(50%) translateY(-50%) rotate(-45deg);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.fabCheckbox:checked ~ .fab .fabLine {
+  animation: none;
+}
+
+.fabWheel {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  //   border: 1px solid #;
+  width: 10rem;
+  height: 10rem;
+  transition: all 0.3s ease;
+  transform-origin: bottom right;
+  transform: scale(0);
+}
+
+.fabCheckbox:checked ~ .fabWheel {
+  transform: scale(1);
+}
+.fabAction {
+  position: absolute;
+  background: var(--color-text);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-bg);
+  /*   box-shadow: 0 0.1rem 1rem rgba(24, 66, 154, 0.82); */
+  transition: all 1s ease;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.fabCheckbox:checked ~ .fabWheel .fabAction {
+  opacity: 1;
+}
+
+.fabAction:hover {
+  background-color: #ef4444;
+}
+
+.fabWheel .fabAction1 {
+  right: -1rem;
+  top: 0;
+}
+
+.fabWheel .fabAction2 {
+  right: 3.4rem;
+  top: 0.5rem;
+}
+.fabWheel .fabAction3 {
+  left: 0.5rem;
+  bottom: 3.4rem;
+}
+.fabWheel .fabAction4 {
+  left: 0;
+  bottom: -1rem;
+}
