@@ -5,6 +5,7 @@ import ThemeToggleButton from "./ThemeToggleButton";
 
 import { IconArrow, IconEmail, IconLogin } from "@/public/svgs";
 import { NavbarLink, NavbarName } from "@/app/constants/constants";
+import SignInButton from "./SignInButton";
 
 import styles from "@/styles/Header.module.scss";
 
@@ -48,9 +49,10 @@ export default function Header() {
           <div className="cursor-pointer">
             <IconEmail width={"4rem"} height={"4rem"} />
           </div>
-          <Link href={"/auth/login"} className="cursor-pointer">
+          {/* <Link href={"/api/auth/signin"} className="cursor-pointer">
             <IconLogin width={"4rem"} height={"4rem"} />
-          </Link>
+          </Link> */}
+          <SignInButton />
         </div>
       </nav>
       <section className={styles.introContainer}>
