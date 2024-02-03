@@ -3,8 +3,9 @@ import Image from "next/image";
 
 import ThemeToggleButton from "./ThemeToggleButton";
 
-import { IconArrow } from "@/public/svgs";
+import { IconArrow, IconEmail, IconLogin } from "@/public/svgs";
 import { NavbarLink, NavbarName } from "@/app/constants/constants";
+import SignInButton from "./SignInButton";
 
 import styles from "@/styles/Header.module.scss";
 
@@ -41,12 +42,17 @@ export default function Header() {
             <span className="text-red-500">.</span>
           </Link>
         </div>
-        <div className="flex flex-col gap-y-2 mb-10">
+        <div className={`${styles.buttonListContainer}`}>
           <div className={styles.toggleButtonContainer}>
             <ThemeToggleButton />
           </div>
-          <div>{NavbarName.EMAIL}</div>
-          <div>{NavbarName.UPDATE}</div>
+          <div className="cursor-pointer">
+            <IconEmail width={"4rem"} height={"4rem"} />
+          </div>
+          {/* <Link href={"/api/auth/signin"} className="cursor-pointer">
+            <IconLogin width={"4rem"} height={"4rem"} />
+          </Link> */}
+          <SignInButton />
         </div>
       </nav>
       <section className={styles.introContainer}>

@@ -34,6 +34,13 @@
   font-weight: bold;
 }
 
+.buttonListContainer {
+  display: flex;
+  column-gap: 10px;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
 .toggleButtonContainer {
   width: 100%;
   height: 4rem;
@@ -161,9 +168,9 @@
     align-items: center;
   }
 
-  .toggleButtonContainer {
-    height: 3rem;
-  }
+  // .toggleButtonContainer {
+  //   height: 3rem;
+  // }
 
   .introContainer {
     height: 100vh;
