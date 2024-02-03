@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
   try {
     const connection = await mysql.createConnection(access);
 
-    let sql = "SELECT * FROM CATEGORY_TB";
+    let sql = "SELECT * FROM category";
 
     // 쿼리 실행
     const [result, fields] = await connection.query(sql);
