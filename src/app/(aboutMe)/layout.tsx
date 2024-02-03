@@ -7,6 +7,7 @@ import { notoSans } from "@/app/styles/fonts";
 import { setInitialColorMode } from "@/app/components/aboutMe/header/setInitalColorMode";
 
 import FloatingActionButton from "@/components/floatingActionBtn/FloatingActionButton";
+import Providers from "../components/Provider";
 
 export const metadata: Metadata = {
   title: "김민재의 블로그",
@@ -38,7 +39,7 @@ export default function RootLayout({
         <div className="fixed flex z-50 bottom-[3rem] right-[3rem]">
           <FloatingActionButton />
         </div>
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
