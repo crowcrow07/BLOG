@@ -24,7 +24,6 @@ function SignInButton() {
   }
 
   if (session && session.user) {
-    console.log("세션 :", session, "세션.유저 :", session.user);
     return (
       <button className="w-full h-full" onClick={handleLogout}>
         {loggingOut ? (
