@@ -21,7 +21,7 @@ export default function ThemeToggleButton() {
   return (
     <>
       {darkTheme !== undefined ? (
-        <button className="w-full h-full" onClick={handleToggle}>
+        <button className="w-[4rem] h-[4rem]" onClick={handleToggle}>
           {darkTheme ? (
             <IconLightMode width="100%" height="100%" />
           ) : (

@@ -43,16 +43,18 @@ export default function Header() {
           </Link>
         </div>
         <div className={`${styles.buttonListContainer}`}>
-          <div className={styles.toggleButtonContainer}>
+          <div className="flex-[1] flex justify-center items-center">
             <ThemeToggleButton />
           </div>
-          <div className="cursor-pointer">
-            <IconEmail width={"4rem"} height={"4rem"} />
+          <div className="cursor-pointer flex-[1]">
+            <IconEmail width={"100%"} height={"4rem"} />
           </div>
           {/* <Link href={"/api/auth/signin"} className="cursor-pointer">
             <IconLogin width={"4rem"} height={"4rem"} />
           </Link> */}
-          <SignInButton />
+          <div className="flex flex-[1] justify-center items-center relative h-[4rem] overflow-hidden rounded-full">
+            <SignInButton />
+          </div>
         </div>
       </nav>
       <section className={styles.introContainer}>
