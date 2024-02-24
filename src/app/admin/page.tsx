@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 
-import AdminRoute from "../utils/AdminRoute";
 import CreatePost from "@/components/admin/CreatePost";
 import ManagePost from "@/components/admin/ManagePost";
 import ManageCategory from "@/components/admin/ManageCategory";
@@ -34,7 +33,6 @@ export default function Admin() {
 
   return (
     <header className={styles.headerContainer}>
-      <AdminRoute />
       <nav className={styles.navContainer}>
         <button onClick={() => navHandler("createPost")}>글 작성</button>
         <button onClick={() => navHandler("managePost")}>글 관리</button>
