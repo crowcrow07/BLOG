@@ -11,7 +11,6 @@ interface Data {
   contents: string;
   tag: string;
   date: string;
-  path: string;
 }
 
 interface CardProps {
@@ -21,7 +20,7 @@ interface CardProps {
 // export default function Card({ children, ...props }: Props) {
 export default function Card({ data }: CardProps) {
   // 받아야할 데이터 : id, image url, title, subTitle, contents, tag, date, 이동할 경로
-  const { id, image_url, title, subtitle, contents, tag, date, path } = data;
+  const { id, image_url, title, subtitle, contents, tag, date } = data;
 
   return (
     <div className="h-full flex flex-col">
