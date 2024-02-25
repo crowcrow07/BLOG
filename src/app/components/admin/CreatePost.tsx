@@ -76,7 +76,7 @@ export default function CreatePost() {
       // 오류 처리 로직 (예: 오류 메시지 표시)
     }
   };
-  console.log(value);
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
