@@ -22,6 +22,23 @@ interface RequestBody {
   //   tags: TagItem[];
 }
 
+export async function GET(request: NextRequest) {
+  try {
+    const connection = await mysql.createConnection(access);
+    let sql = "SELECT * FROM post";
+    const [result, fields] = await connection.query(sql);
+
+    connection.end();
+    return NextResponse.json({ data: result });
+  } catch (err) {
+    console.log(err);
+    return new NextResponse("Internal Server Error", {
+      status: 500,
+      headers: { "Content-Type": "text/plain" },
+    });
+  }
+}
+
 export async function POST(request: NextRequest, response: NextResponse) {
   try {
     const body: RequestBody = await request.json();
@@ -42,8 +59,9 @@ export async function POST(request: NextRequest, response: NextResponse) {
       body.thumbnail,
     ];
 
-    await connection.query("SET time_zone='+09:00'");
-    await connection.query(sql, values);
+    const [result, fields] = await connection.query(sql, values);
+
+    console.log(result);
 
     connection.end();
     return NextResponse.json({ success: true, data: { ...body, categoryId } });
