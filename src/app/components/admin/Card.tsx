@@ -10,10 +10,28 @@ interface getData {
 
 interface CardProps {
   post: getData;
+  onDelete: (id: number) => void;
 }
 
-export default function Card({ post }: CardProps) {
-  const { title, subTitle } = post;
+export default function Card({ post, onDelete }: CardProps) {
+  const { id, title, subTitle } = post;
+
+  const deleteButtonHandler = async () => {
+    try {
+      const response = await fetch(`http://localhost:3000/api/post/`, {
+        method: "DELETE",
+        body: JSON.stringify(id),
+      });
+      if (response.ok) {
+        console.log("Delete successful");
+        onDelete(id);
+      } else {
+        throw new Error("delete failed");
+      }
+    } catch (err) {
+      console.error("delete error:", err);
+    }
+  };
   return (
     <div className="flex p-4 justify-between mb-8  border-[1px] border-solid border-black">
       <div>
@@ -25,7 +43,9 @@ export default function Card({ post }: CardProps) {
       </div>
       <div className="flex items-center">
         <div className="mr-4">수정</div>
-        <div>삭제</div>
+        <button type="button" onClick={deleteButtonHandler}>
+          삭제
+        </button>
       </div>
     </div>
   );
