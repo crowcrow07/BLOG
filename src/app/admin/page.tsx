@@ -41,7 +41,9 @@ export default function Admin() {
         </button>
         <button onClick={() => navHandler("manageTag")}>태그 관리</button>
       </nav>
-      <section className={styles.introContainer}>{viewPage(page)}</section>
+      <section className={`${styles.introContainer} overflow-y-scroll`}>
+        {viewPage(page)}
+      </section>
     </header>
   );
 }
