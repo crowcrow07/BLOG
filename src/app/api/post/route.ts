@@ -13,13 +13,17 @@ interface TagItem {
   tag: string;
 }
 
-interface RequestBody {
+interface PostRequestBody {
   title: string;
   subTitle: string;
   categoryId: string;
   content: string;
   thumbnail: string;
   //   tags: TagItem[];
+}
+
+interface DeleteRequestBody {
+  id: number;
 }
 
 export async function GET(request: NextRequest) {
@@ -41,7 +45,7 @@ export async function GET(request: NextRequest) {
 
 export async function POST(request: NextRequest, response: NextResponse) {
   try {
-    const body: RequestBody = await request.json();
+    const body: PostRequestBody = await request.json();
 
     const categoryId = parseInt(body.categoryId, 10);
     if (isNaN(categoryId)) {
@@ -65,6 +69,24 @@ export async function POST(request: NextRequest, response: NextResponse) {
 
     connection.end();
     return NextResponse.json({ success: true, data: { ...body, categoryId } });
+  } catch (err) {
+    console.log(err);
+    return new NextResponse("Internal Server Error", {
+      status: 500,
+      headers: { "Content-Type": "text/plain" },
+    });
+  }
+}
+
+export async function DELETE(request: NextRequest, response: NextResponse) {
+  try {
+    const body: DeleteRequestBody = await request.json();
+    const connection = await mysql.createConnection(access);
+    let sql = `DELETE FROM post WHERE id = ?`;
+    await connection.query(sql, body);
+
+    connection.end();
+    return NextResponse.json({ success: true });
   } catch (err) {
     console.log(err);
     return new NextResponse("Internal Server Error", {
