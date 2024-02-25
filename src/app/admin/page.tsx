@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import CreatePost from "@/components/admin/CreatePost";
 import ManagePost from "@/components/admin/ManagePost";
@@ -12,8 +12,14 @@ import styles from "@/styles/Admin.module.scss";
 export default function Admin() {
   const [page, setPage] = useState("createPost");
 
+  useEffect(() => {
+    const lastPage = localStorage.getItem("lastPage") || "createPost";
+    setPage(lastPage);
+  }, []);
+
   const navHandler = (type: string) => {
     setPage(type);
+    localStorage.setItem("lastPage", type);
   };
 
   const viewPage = (type: string) => {
