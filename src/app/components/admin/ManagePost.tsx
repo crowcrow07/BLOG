@@ -17,19 +17,23 @@ export default function ManagePost() {
       const result = await fetch("http://localhost:3000/api/post");
       const data = await result.json();
       console.log(data);
-      setList(data.data);
+      setPosts(data.data);
     };
 
     getPost();
   }, []);
 
-  const [list, setList] = useState<getData[]>([]);
+  const [posts, setPosts] = useState<getData[]>([]);
+
+  const deletePost = (id: number) => {
+    setPosts(posts.filter((post) => post.id !== id));
+  };
 
   return (
     <div className="p-4">
-      {list &&
-        list.map((post: getData) => {
-          return <Card key={post.id} post={post} />;
+      {posts &&
+        posts.map((post: getData) => {
+          return <Card key={post.id} post={post} onDelete={deletePost} />;
         })}
     </div>
   );
