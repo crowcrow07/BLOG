@@ -63,9 +63,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
       body.thumbnail,
     ];
 
-    const [result, fields] = await connection.query(sql, values);
-
-    console.log(result);
+    await connection.query(sql, values);
 
     connection.end();
     return NextResponse.json({ success: true, data: { ...body, categoryId } });
