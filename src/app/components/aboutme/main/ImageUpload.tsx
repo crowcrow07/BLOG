@@ -8,7 +8,6 @@ const ImageUpload = () => {
 
   const handleFileChange = (event: any) => {
     const selectedFile = event.target.files[0];
-    console.log(selectedFile);
     setFile(selectedFile);
   };
 
@@ -24,7 +23,6 @@ const ImageUpload = () => {
         });
 
         const result = await response.json();
-        console.log("hi", result);
       } catch (error) {
         console.error("Error uploading image:", error);
       }
