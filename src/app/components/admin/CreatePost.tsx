@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+import ImageUpload from "@/app/utils/ImageUpload";
 
 import AddTagInput from "./AddTagInput";
 
@@ -78,12 +79,25 @@ export default function CreatePost({ editData }: any) {
         throw new Error("Something went wrong");
       }
 
-      // 성공적으로 데이터를 처리했다면 추가 로직 처리
+      if (method === "POST") {
+        alert("등록이 완료되었습니다.");
+      } else if (method === "PUT") {
+        alert("수정이 완료되었습니다.");
+      }
+
+      setValue({
+        title: "",
+        subTitle: "",
+        categoryId: 0,
+        content: "",
+        thumbnail: "",
+      });
     } catch (error) {
       console.error("Submit Error:", error);
+      alert("처리 중 문제가 발생했습니다.");
     }
   };
-
+  console.log(value);
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -135,11 +149,17 @@ export default function CreatePost({ editData }: any) {
           태그 테이블에서 조회를 하고 있으면 태그 id를 가져와서 post_tag 테이블에 등록
         */}
       </div>
+      <ImageUpload
+        onUpload={(imageUrl: string) =>
+          setValue((prev) => ({ ...prev, thumbnail: imageUrl }))
+        }
+      />
       <ReactQuill
         theme="snow"
         value={value.content}
         onChange={handleContentChange}
       />
+
       <button type="submit">등록</button>
     </form>
   );
