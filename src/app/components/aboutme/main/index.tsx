@@ -1,18 +1,16 @@
 import Card from "./Card";
 
-import ImageUpload from "./test";
-
 import styles from "@/styles/Main.module.scss";
 
 interface Data {
   id: number;
-  image_url: string;
+  categoryId: number;
   title: string;
   subtitle: string;
-  contents: string;
-  tag: string;
-  date: string;
-  path: string;
+  content: string;
+  createdAt: string;
+  modifiedAt: string;
+  thumbnail: string;
 }
 
 interface ApiResponse {
@@ -20,9 +18,8 @@ interface ApiResponse {
 }
 
 export default async function Main() {
-  const result = await fetch("http://localhost:3000/api");
+  const result = await fetch("http://localhost:3000/api/post");
   const data: ApiResponse = await result.json();
-
   return (
     <main className={`${styles.mainContainer}`}>
       <div className={`${styles.contentsContainer}`}>
@@ -34,7 +31,6 @@ export default async function Main() {
         <h2 className="mt-12 mb-8 pb-4 font-bold">일상 컨텐츠</h2>
         <div className={`${styles.gridContainer}`}></div>
       </div>
-      <ImageUpload />
     </main>
   );
 }
