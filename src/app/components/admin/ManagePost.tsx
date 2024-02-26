@@ -11,7 +11,15 @@ interface getData {
   //   tags: TagItem[];
 }
 
-export default function ManagePost() {
+interface ManagePostProps {
+  setPage: React.Dispatch<React.SetStateAction<string>>;
+  setEditPostData: React.Dispatch<React.SetStateAction<any>>;
+}
+
+export default function ManagePost({
+  setPage,
+  setEditPostData,
+}: ManagePostProps) {
   useEffect(() => {
     const getPost = async () => {
       const result = await fetch("http://localhost:3000/api/post");
@@ -33,7 +41,15 @@ export default function ManagePost() {
     <div className="p-4">
       {posts &&
         posts.map((post: getData) => {
-          return <Card key={post.id} post={post} onDelete={deletePost} />;
+          return (
+            <Card
+              key={post.id}
+              post={post}
+              onDelete={deletePost}
+              setPage={setPage}
+              setEditPostData={setEditPostData}
+            />
+          );
         })}
     </div>
   );

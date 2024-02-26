@@ -11,6 +11,7 @@ import styles from "@/styles/Admin.module.scss";
 
 export default function Admin() {
   const [page, setPage] = useState("createPost");
+  const [editPostData, setEditPostData] = useState(null);
 
   useEffect(() => {
     const lastPage = localStorage.getItem("lastPage") || "createPost";
@@ -25,9 +26,11 @@ export default function Admin() {
   const viewPage = (type: string) => {
     switch (type) {
       case "createPost":
-        return <CreatePost />;
+        return <CreatePost editData={editPostData} />;
       case "managePost":
-        return <ManagePost />;
+        return (
+          <ManagePost setEditPostData={setEditPostData} setPage={setPage} />
+        );
       case "manageCategory":
         return <ManageCategory />;
       case "manageTag":

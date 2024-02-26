@@ -14,7 +14,7 @@ interface Category {
   name: string;
 }
 
-export default function CreatePost() {
+export default function CreatePost({ editData }: any) {
   const [categories, setCategories] = useState<Category[]>([]);
   const [value, setValue] = useState({
     title: "",
@@ -24,6 +24,12 @@ export default function CreatePost() {
     content: "", // content 추가
     thumbnail: "",
   });
+
+  useEffect(() => {
+    if (editData) {
+      setValue({ ...editData });
+    }
+  }, [editData]);
 
   useEffect(() => {
     const getCategory = async () => {
@@ -54,26 +60,27 @@ export default function CreatePost() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const method = editData ? "PUT" : "POST"; // 수정 데이터가 있으면 PUT, 없으면 POST
 
     try {
-      const response = await fetch("http://localhost:3000/api/post", {
-        method: "POST", // 요청 방식
-        headers: {
-          "Content-Type": "application/json", // 보내는 데이터 타입
-        },
-        body: JSON.stringify(value), // JavaScript 값이나 객체를 JSON 문자열로 변환
-      });
+      const response = await fetch(
+        `http://localhost:3000/api/post/${editData ? editData.id : ""}`,
+        {
+          method: method,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(value),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Something went wrong");
       }
 
-      const result = await response.json(); // 응답 데이터 받기
-      console.log(result); // 결과 확인
-      // 성공적으로 데이터를 보냈다면 추가적인 로직 처리 (예: 폼 초기화, 성공 메시지 표시 등)
+      // 성공적으로 데이터를 처리했다면 추가 로직 처리
     } catch (error) {
       console.error("Submit Error:", error);
-      // 오류 처리 로직 (예: 오류 메시지 표시)
     }
   };
 
