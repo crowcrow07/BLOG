@@ -8,6 +8,7 @@ import ManageCategory from "@/components/admin/ManageCategory";
 import ManageTag from "@/components/admin/ManageTag";
 
 import styles from "@/styles/Admin.module.scss";
+import Link from "next/link";
 
 export default function Admin() {
   const [page, setPage] = useState("createPost");
@@ -43,6 +44,7 @@ export default function Admin() {
   return (
     <header className={styles.headerContainer}>
       <nav className={styles.navContainer}>
+        <Link href={"/"}>홈</Link>
         <button onClick={() => navHandler("createPost")}>글 작성</button>
         <button onClick={() => navHandler("managePost")}>글 관리</button>
         <button onClick={() => navHandler("manageCategory")}>
