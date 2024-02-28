@@ -56,7 +56,7 @@ export async function POST(request: NextRequest, response: NextResponse) {
 
     let sql = `INSERT INTO post (categoryId, title, subTitle, content, thumbnail) VALUES (?, ?, ?, ?, ?)`;
     const values = [
-      categoryId, // 변환된 숫자 사용
+      categoryId,
       body.title,
       body.subTitle,
       body.content,

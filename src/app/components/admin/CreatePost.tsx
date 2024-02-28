@@ -97,7 +97,7 @@ export default function CreatePost({ editData }: any) {
       alert("처리 중 문제가 발생했습니다.");
     }
   };
-  console.log(value);
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
