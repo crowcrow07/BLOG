@@ -1,0 +1,76 @@
+.mainContainer {
+  width: 100vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+.contentsContainer {
+  max-width: 1280px;
+  width: 100%;
+  > h2 {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 100%));
+  grid-auto-rows: minmax(612px, auto);
+  gap: 2rem;
+  text-align: center;
+  > div {
+    border-color: var(--color-text);
+    background-color: transparent;
+    border-width: 1px;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  .imageContainer {
+    position: relative;
+    flex: 7;
+    border-bottom-width: 1px;
+    border-bottom-color: var(--color-text);
+  }
+}
+
+/* 480px보다 작을 경우 */
+@media (max-width: 480px) {
+}
+/* 640px보다 작을 경우 */
+@media (max-width: 640px) {
+  .contentsContainer {
+    text-align: center;
+    > h2 {
+      font-size: 2rem;
+    }
+  }
+  .gridContainer {
+    grid-template-columns: repeat(1, minmax(0, 100%));
+    grid-auto-rows: minmax(121px, auto);
+    > div {
+      border-left-width: 0;
+      border-right-width: 0;
+      border-top-width: 0;
+      border-bottom-width: 1;
+    }
+  }
+  .none {
+    display: none;
+  }
+}
+/* 640px보다 크고 768px보다 작을 경우 */
+@media (min-width: 640px) and (max-width: 768px) {
+  .gridContainer {
+    grid-template-columns: repeat(1, minmax(0, 100%));
+  }
+}
+/* 1024px보다 작을 경우 */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .gridContainer {
+    grid-template-columns: repeat(2, minmax(0, 100%));
+  }
+}

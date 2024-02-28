@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import { Noto_Sans_KR } from "next/font/google";
-import "./globals.css";
 
-const notoSans = Noto_Sans_KR({
-  subsets: ["latin"],
-  weight: ["100", "400", "700"],
-});
+import "@/styles/globals.scss";
+import "@/styles/variable.scss";
+
+import { notoSans } from "@/app/styles/fonts";
+import { setInitialColorMode } from "@/app/components/aboutMe/header/setInitalColorMode";
+
+import FloatingActionButton from "@/components/floatingActionBtn/FloatingActionButton";
+import Providers from "./components/Provider";
 
 export const metadata: Metadata = {
   title: "김민재의 블로그",
@@ -17,9 +19,28 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const themeInitializerScript = `(function() {
+    ${setInitialColorMode.toString()}
+    setInitialColorMode();
+  })()
+  `;
+
   return (
     <html lang="en">
-      <body className={notoSans.className}>{children}</body>
+      <body
+        suppressHydrationWarning={true}
+        className={`relative ${notoSans.className}`}
+      >
+        <script
+          dangerouslySetInnerHTML={{
+            __html: themeInitializerScript,
+          }}
+        ></script>
+        <div className="fixed flex z-50 bottom-[3rem] right-[3rem]">
+          {/* <FloatingActionButton /> */}
+        </div>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
