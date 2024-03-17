@@ -4,7 +4,7 @@ import "@/styles/globals.scss";
 import "@/styles/variable.scss";
 
 import { notoSans } from "@/app/styles/fonts";
-import { setInitialColorMode } from "@/app/components/aboutMe/header/setInitalColorMode";
+import { setInitialColorMode } from "@/app/components/aboutme/header/setInitalColorMode";
 
 import FloatingActionButton from "@/components/floatingActionBtn/FloatingActionButton";
 import Providers from "./components/Provider";

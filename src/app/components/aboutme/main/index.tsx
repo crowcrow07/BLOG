@@ -1,26 +1,8 @@
-import Card from "./Card";
 import PostViewer from "./PostViewer";
 
 import styles from "@/styles/Main.module.scss";
 
-interface Data {
-  id: number;
-  categoryId: number;
-  title: string;
-  subtitle: string;
-  content: string;
-  createdAt: string;
-  modifiedAt: string;
-  thumbnail: string;
-}
-
-interface ApiResponse {
-  data: Data[];
-}
-
-export default async function Main() {
-  const result = await fetch("http://localhost:3000/api/post");
-  const data: ApiResponse = await result.json();
+export default function Main() {
   return (
     <main className={`${styles.mainContainer}`}>
       <div className={`${styles.contentsContainer}`}>

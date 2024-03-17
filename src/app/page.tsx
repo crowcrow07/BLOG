@@ -1,5 +1,5 @@
-import Header from "@/app/components/aboutMe/header";
-import Main from "@/app/components/aboutMe/main";
+import Header from "@/app/components/aboutme/header";
+import Main from "@/app/components/aboutme/main";
 import AdminRoute from "./utils/AdminRoute";
 
 export default function Home() {
